@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="scripts/services/urlservice.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body ng-app="urlShortenerApp" ng-controller="MainCtrl">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <h2>Url Shortener</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron">
+        <p class="lead">
+          Enter the URL you would like to shorten:
+        </p>
+        <p>
+          <input type="text" ng-model="url" placeholder="Enter your URL"/>
+        </p>
+        <p>
+          <input type="text" ng-model="shortNam" placeholder="Enter your URL suffix" ng-show="showSuffix"/>
+        </p>
+        <p>
+          <a class="btn btn-lg btn-success" ng-href="#/" ng-click="shortenUrl(url, shortNam)">Shorten url <span class="glyphicon glyphicon-ok"></span></a>
+          <a class="btn btn-lg btn-info" ng-href="#/" ng-click="showSuffix = true">I want to pick my short url suffix <span class="glyphicon glyphicon-plus"></span></a>
+        </p>
+
+        <p>
+           <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <span ng-bind="error"></span>
+          </div>
+        <div class="alert alert-success alert-dismissible" role="alert" ng-if="shortUrl">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <span>Your short URL was successfully generated: <strong>{{shortUrl}}</strong></span>
+        </div>
+        </p>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/urlservice.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+
+</body>
+</html>
